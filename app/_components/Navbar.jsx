@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link';
 import React, { useState } from 'react'
 import { TbMenuDeep } from "react-icons/tb";
+import Button from './Button';
 
 function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -27,12 +28,13 @@ function Navbar() {
             {menuOpen && (
                 <div className='w-full h-screen absolute top-0 left-0 bg-gray10 z-10'>
                     <ul className='flex flex-col w-full h-screen items-center justify-center lg:hidden gap-10 font-medium text-base text-gray90'>
-                        <li>Home</li>
-                        <li>Services</li>
-                        <li>Work</li>
-                        <li>Process</li>
-                        <li>About</li>
-                        <li>Careers</li>
+                        <Link href={'/'} onClick={handleMenuOpen}><li>Home</li></Link>
+                        <Link href={'/services'} onClick={handleMenuOpen}><li>Services</li></Link>
+                        <Link href={'/works'} onClick={handleMenuOpen}><li>Work</li></Link>
+                        <Link href={'/process'} onClick={handleMenuOpen}><li>Process</li></Link>
+                        <Link href={'/about'} onClick={handleMenuOpen}><li>About</li></Link>
+                        <Link href={'/carreers'} onClick={handleMenuOpen}><li>Careers</li></Link>
+                        <Link href={"/contact"} onClick={handleMenuOpen}><li><Button primary={true} title={"Contact Us"} /></li></Link>
                     </ul>
                 </div>
             )}
@@ -45,7 +47,7 @@ function Navbar() {
                 <Link href={'/about'}><li>About</li></Link>
                 <Link href={'/carreers'}><li>Careers</li></Link>
             </ul>
-            <Link href={'/contact'}><button className='hidden lg:block px-[18px] py-3 bg-green50 text-gray15 rounded-md'>Contact Us</button></Link>
+            <Link href={'/contact'} className='hidden lg:block px-[18px] py-3 bg-green50 text-gray15 rounded-md'><button>Contact Us</button></Link>
         </div >
     )
 }
