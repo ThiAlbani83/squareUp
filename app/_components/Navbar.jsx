@@ -5,6 +5,33 @@ import Link from 'next/link';
 import React, { useState } from 'react'
 import { TbMenuDeep } from "react-icons/tb";
 import Button from './Button';
+import { motion } from 'framer-motion';
+
+const menuVariants = {
+    open: {
+        x: 0,
+        transition: {
+            type: "inertia",
+            velocity: 10,
+            min: 100,
+            max: 100,
+            bounceStiffness: 40,
+            bounceDamping: 15
+        }
+    },
+    closed: {
+        x: '-100%',
+        transition: {
+            type: "inertia",
+            velocity: 10,
+            min: 100,
+            max: 100,
+            bounceStiffness: 30,
+            bounceDamping: 10
+        }
+    }
+}
+
 
 function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -18,6 +45,13 @@ function Navbar() {
         }
     }
 
+    const handleDragEnd = (event, info) => {
+        if (info.point.x < -window.innerWidth / 2) {
+            setMenuOpen(false);
+        }
+    };
+
+
     return (
         <div className='px-[16px] py-[30px] lg:px-20 xl:px-40 flex items-center justify-between border-b border-b-gray15'>
             <div className='flex items-center gap-3'>
@@ -26,7 +60,16 @@ function Navbar() {
             </div>
             <TbMenuDeep onClick={handleMenuOpen} className='bg-gray15 text-green80 w-[46px] h-[46px] text-xs p-1 rounded-md lg:hidden z-50' />
             {menuOpen && (
-                <div className='w-full h-screen absolute top-0 left-0 bg-gray10 z-10'>
+                <motion.div
+                    initial="closed"
+                    draggable='true'
+                    animate={menuOpen ? "open" : "closed"}
+                    variants={menuVariants}
+                    drag="x"
+                    dragConstraints={{ left: 0, right: 0 }}
+                    dragElastic={0.3}
+                    onDragEnd={handleDragEnd}
+                    className='w-full h-screen absolute top-0 left-0 bg-gray10 z-10'>
                     <ul className='flex flex-col w-full h-screen items-center justify-center lg:hidden gap-10 font-medium text-base text-gray90'>
                         <Link href={'/'} onClick={handleMenuOpen}><li>Home</li></Link>
                         <Link href={'/services'} onClick={handleMenuOpen}><li>Services</li></Link>
@@ -36,7 +79,7 @@ function Navbar() {
                         <Link href={'/carreers'} onClick={handleMenuOpen}><li>Careers</li></Link>
                         <Link href={"/contact"} onClick={handleMenuOpen}><li><Button primary={true} title={"Contact Us"} /></li></Link>
                     </ul>
-                </div>
+                </motion.div>
             )}
 
             <ul className='hidden lg:flex gap-6 font-medium text-sm lg:text-base xl:text-lg text-gray90'>
