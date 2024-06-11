@@ -67,7 +67,7 @@ function Navbar() {
                     variants={menuVariants}
                     drag="x"
                     dragConstraints={{ left: 0, right: 0 }}
-                    dragElastic={0.3}
+                    dragElastic={0.6}
                     onDragEnd={handleDragEnd}
                     className='w-full h-screen absolute top-0 left-0 bg-gray10 z-10'>
                     <ul className='flex flex-col w-full h-screen items-center justify-center lg:hidden gap-10 font-medium text-base text-gray90'>
