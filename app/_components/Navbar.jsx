@@ -43,9 +43,9 @@ function Navbar() {
                 <Link href={'/works'}><li>Work</li></Link>
                 <Link href={'/process'}><li>Process</li></Link>
                 <Link href={'/about'}><li>About</li></Link>
-                <li>Careers</li>
+                <Link href={'/carreers'}><li>Careers</li></Link>
             </ul>
-            <button className='hidden lg:block px-[18px] py-3 bg-green50 text-gray15 rounded-md'>Contact Us</button>
+            <Link href={'/contact'}><button className='hidden lg:block px-[18px] py-3 bg-green50 text-gray15 rounded-md'>Contact Us</button></Link>
         </div >
     )
 }

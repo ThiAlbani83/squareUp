@@ -4,9 +4,9 @@ import SocialProof from "./_components/home_page/SocialProof";
 import Services from "./_components/home_page/Services";
 import Reasons from "./_components/home_page/Reasons";
 import ClientOpinion from "./_components/home_page/ClientOpinion";
-import FAQ from "./_components/home_page/FAQ";
-import Contact from "./_components/home_page/Contact";
+import Contact from "./_components/Contact";
 import Container from "./_components/Container";
+import FAQ from "./_components/home_page/FAQ";
 
 export default function Home() {
   return (

@@ -5,6 +5,7 @@ import AboutSection from './_components/AboutSection'
 import AboutCard from './_components/AboutCard'
 import Contact from './_components/Contact'
 import Topic from './_components/Topic'
+import CTA from '../_components/CTA'
 
 function page() {
     return (
@@ -20,7 +21,7 @@ function page() {
                 <AboutCard number={"05"} title={"Client-Centric Approach"} description={"SquareUp's success was not solely measured by their technical prowess or design skills but by their unwavering commitment to their clients. They placed their clients at the center of everything they did. They took the time to listen, understand their unique challenges, and tailor their services to meet their specific requirements. Their mission was to become trusted partners, guiding businesses on their digital journey."} />
                 <AboutCard number={"06"} title={"Driving Success"} description={"With each project, SquareUp's reputation grew. Their portfolio expanded to include a diverse range of industries and their impact was felt far and wide. From startups to established enterprises, businesses sought out SquareUp for their expertise in creating digital products that delivered tangible results. SquareUp's success was driven by their passion for innovation, their dedication to quality, and their commitment to helping their clients succeed in the digital world."} />
             </div>
-            <Contact />
+            <CTA />
         </Container>
     )
 }

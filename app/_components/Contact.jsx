@@ -1,13 +1,13 @@
 import Image from 'next/image'
 import React from 'react'
-import Button from '../Button'
-import StyledCheckbox from '../StyledCheckbox'
-import RangeSlider from '../RangeSlider'
+import Button from './Button'
+import StyledCheckbox from './StyledCheckbox'
+import RangeSlider from './RangeSlider'
 
-function Contact() {
+function Contact({ isImage }) {
     return (
         <section className='flex flex-col border border-gray15 items-center'>
-            <div className='bg-[url("/contact-mobile.png")] lg:bg-[url("/contact-desktop.png")] bg-no-repeat bg-center bg-cover w-full'>
+            {isImage && <div className='bg-[url("/contact-mobile.png")] lg:bg-[url("/contact-desktop.png")] bg-no-repeat bg-center bg-cover w-full'>
                 <div className='w-full h-full bg-black/70'>
                     <div className='py-[50px] lg:py-[80px] flex flex-col items-center gap-3'>
                         <Image src={'/logo.jpg'} width={53} height={53} alt='logo' />
@@ -21,7 +21,7 @@ function Contact() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>}
             <div className='flex flex-col gap-8 items-center sm:border-x sm:border-b  sm:border-gray15 py-7 w-fit justify-center  px-6 md:px-10'>
                 <div className='flex flex-col sm:flex-row gap-7 w-full'>
                     <div className='w-full flex flex-col px-6 py-[18px] gap-3 bg-[#242424]/50 border border-gray15 rounded-md'>
@@ -60,7 +60,7 @@ function Contact() {
                     <textarea placeholder='Type here' className='w-full h-[150px] resize-none bg-gray15 text-white border-gray60 outline-none
                     placeholder:text-gray60 rounded-md p-2'/>
                 </div>
-                <Button title="Submit" primary={true}/>
+                <Button title="Submit" primary={true} />
             </div>
 
 
